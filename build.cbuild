@@ -1,0 +1,8 @@
+{
+    "compiler": "MinGW",
+    "project": "swarm",
+    "include_dir": "include",
+    "source_dirs": ["src"],
+    "output": "dll",
+    "output_dir": "build"
+}
