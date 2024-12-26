@@ -13,15 +13,15 @@ typedef swarm_component (*_get_component_ptr)(swarm_scene* scene);
 
 /* COMPONENT-DATA STRUCTURES */
 typedef struct swarm_mesh_component {
-    
+    unsigned char active[SWARM_ENTITY_MAX];
 } swarm_mesh_component;
 
 typedef struct swarm_texture_component {
-
+    unsigned char active[SWARM_ENTITY_MAX];
 } swarm_texture_component;
 
 typedef struct swarm_transform_component {
-
+    unsigned char active[SWARM_ENTITY_MAX];
 } swarm_transform_component;
 
 #define SWARM_COMPONENT_TYPE(t) t##_COMPONENT
@@ -80,9 +80,10 @@ struct swarm_scene {
 };
 
 swarm_entity swarm_make_entity(swarm_scene* scene);
-unsigned char swarm_kill_entity(swarm_scene* scene);
+unsigned char swarm_kill_entity(swarm_scene* scene, swarm_entity entity);
 
 unsigned char swarm_register_component(
+    swarm_scene* scene,
     swarm_component_type type,
     void* data,
     _add_component_ptr add_component,
